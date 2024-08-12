@@ -1,0 +1,11 @@
+Used code from here: https://github.com/KananVyas/BoxDetection
+
+This program extracts schedule info from an image then sticks it together to create a wallpaper for your phone lock screen
+
+How to use:
+
+1. Go to the schedule website and save the page as a pdf
+2. Upload the pdf to the program
+3. Done
+
+*note: program not finished yet frfr, also only works for my phone's dimensions probably
