@@ -5,11 +5,10 @@ import os
 from dotenv import load_dotenv, dotenv_values
 
 def convert_pdf_to_png(pdf_path):
-    file_path = "Student Course ScheduleFFF.pdf"
-    doc = pymupdf.open(file_path) # open a document
+    doc = pymupdf.open(pdf_path) # open a document
     for page in doc: # iterate the document pages
-        pix = page.get_pixmap(dpi=200)
-        pix.save(file_path[:len(file_path)-3]+"png")
+        pix = page.get_pixmap(dpi=250)
+        pix.save(pdf_path[:len(pdf_path)-3]+"png")
 
 def sort_contours(cnts, method="left-to-right"):
     # initialize the reverse flag and sort index
@@ -113,20 +112,11 @@ def box_extraction(img_for_box_extraction_path, cropped_dir_path):
         # Expand the bounding box slightly to include the black lines
         pad = 4  # Padding size
 
-        # Cut off less when dealing with Friday box
-        if (idx < 1):
-            x = max(0, x - pad)
-            y = max(0, y - pad)
-            w = min(img.shape[1] - x, w + 1 * pad)
-            h = min(img.shape[0] - y, h + 2 * pad)
-        else:
-            x = max(0, x - pad)
-            y = max(0, y - pad)
-            w = min(img.shape[1] - x, w + 2 * pad)
-            h = min(img.shape[0] - y, h + 2 * pad)
-
-
-        # If the box height is greater then 20, widht is >80, then only save it as a box in "cropped/" folder.
+        x = max(0, x - pad)
+        y = max(0, y - pad)
+        w = min(img.shape[1] - x, w + 2 * pad)
+        h = min(img.shape[0] - y, h + 2 * pad)
+ 
         if (w < 400 and h > 850):
             idx += 1
             new_img = img[y:y+h, x:x+w]
@@ -136,11 +126,6 @@ def box_extraction(img_for_box_extraction_path, cropped_dir_path):
     # Enable this line to see all contours.
     # cv2.drawContours(img, contours, -1, (0, 0, 255), 3)
     # cv2.imwrite("./Temp/img_contour.jpg", img)
-
-# Function to create final wallpaper
-def make_wallpaper():
-    return
-
 
 #Input image path and out folder
 load_dotenv()
