@@ -4,8 +4,24 @@ This program extracts schedule info from an image then sticks it together to cre
 
 How to use:
 
-1. Go to the schedule website and save the page as a pdf
-2. Upload the pdf to the program
-3. Done
+1. clone this repo into your own workspace
+2. create a .env file
+3. It should have this format:
 
-*note: program not finished yet frfr, also only works for my phone's dimensions probably
+FILE_PATH = ""
+SCREEN_WIDTH = 
+SCREEN_HEIGHT = 
+
+file path is just going to be the name of your pdf file
+
+4. go to the yorku courses website and click on "Plot My Timetable" and then click "Printable Version"
+
+if you want to preserve colour of your timetable, download it from firefox as chrome doesn't allow that
+
+5. drag your pdf file into the same folder as the WallPaperMaker.py file
+
+6. run the python file
+
+7. look in the joined folder for the final result (images and output are just some cool things you can look at)
+
+*note: I haven't tested this with other phone dimensions and it only works with yorku schedules
