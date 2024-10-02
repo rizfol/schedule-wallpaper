@@ -6,3 +6,4 @@
 *.whl
 .env
 JoinAndPaste.py
+!/Examples/*.png
