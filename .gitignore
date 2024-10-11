@@ -5,5 +5,6 @@
 *.png
 *.whl
 .env
-JoinAndPaste.py
+*.py
 !/Examples/*.png
+!WallpaperMaker.py
